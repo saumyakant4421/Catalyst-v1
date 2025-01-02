@@ -1,0 +1,211 @@
+#account-section {
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 8%;
+  min-height: 42rem;
+  padding: 1rem;
+}
+
+.account-section-title {
+  text-align: center;
+  color: #e9e9e9;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  font-family: "Poppins", "sans-serif";
+}
+
+.account-carousel {
+  position: relative;
+  min-height: 32rem;
+  width: min(95%, 800px);
+  margin: 0 auto 2rem;
+  overflow: hidden;
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
+  background-repeat: no-repeat;
+  background-size: 500%;
+  background-position: bottom center;
+  background-color: rgba(27, 27, 27, 0.815);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 8px 8px;
+}
+
+.account-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-reveal {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.register-hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.register-form {
+  width: min(85%, 600px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.input-container {
+  width: 100%;
+}
+
+.input-label {
+  color: #b9b9b9;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  padding: clamp(0.6rem, 2vw, 0.8rem);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  height: 1rem;
+}
+
+.input:focus {
+  border-color: #9333ea;
+  background: rgba(147, 51, 234, 0.1);
+}
+
+.input-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.form-buttons {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-self: normal;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.primary-buttons-wrapper {
+  width: 100%;
+}
+
+.input-button,
+.form-switch-button {
+  padding: clamp(0.6rem, 2vw, 0.8rem);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: all 0.3s ease;
+  height: clamp(2.4rem, 4vw, 2.8rem);
+}
+
+.input-button {
+  background: #9333ea;
+  color: white;
+  flex: 1;
+  width: 50%;
+}
+
+.input-button.login:hover {
+  background: #7928ca;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(147, 51, 234, 0.4);
+}
+
+.input-button.reset {
+  background: #4b5563;
+}
+
+.input-button.reset:hover {
+  background: #ff0000;
+}
+
+.form-switch-button {
+  background: transparent;
+  border: 1px solid #9333ea;
+  color: #9333ea;
+  width: 100%;
+  height: 1.5rem;
+}
+
+.form-switch-button:hover {
+  background: rgba(147, 51, 234, 0.1);
+}
+
+.input-button-text,
+.form-switch-button-text {
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  font-weight: 500;
+  line-height: 1;
+  margin-top: 0.55rem;
+}
+
+.input-button-image {
+  width: clamp(16px, 3vw, 18px);
+  height: clamp(16px, 3vw, 18px);
+  object-fit: contain;
+}
+
+.form-switch-button-image {
+  width: clamp(18px, 3vw, 20px);
+  height: clamp(18px, 3vw, 20px);
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .account-carousel {
+    min-height: 38rem;
+  }
+
+  .primary-buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .input-button {
+    width: 100%;
+  }
+
+  .form-buttons {
+    margin-left: 0;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .account-carousel {
+    width: 98%;
+    min-height: 36rem;
+  }
+
+  .register-form {
+    width: 92%;
+    gap: 1rem;
+  }
+}

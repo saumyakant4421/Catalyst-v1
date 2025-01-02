@@ -1,0 +1,33 @@
+{
+    "accountExists": {
+      "title": "THIS ACCOUNT ALREADY EXISTS",
+      "description": "Login to your account to access petitions and related features.",
+      "image": "/error/exists.png"
+    },
+    "accountAbsent": {
+      "title": "CREATE OR LOGIN TO YOUR ACCOUNT",
+      "description": "Create or login in order to access petitions and related features.",
+      "image": "/error/absent.png"
+    },
+    "accountInvalid": {
+      "title": "THIS ACCOUNT DOES NOT EXIST",
+      "description": "Create your account to access petitions and related features.",
+      "image": "/error/general.png"
+    },
+    "accountCreationFailure": {
+      "title": "FAILED TO CREATE YOUR ACCOUNT",
+      "description": "An unexpected error has occurred, please try again in a little while.",
+      "image": "/error/failure.png"
+    },
+    "loginPasswordIncorrect": {
+      "title": "FAILED TO LOGIN TO YOUR ACCOUNT",
+      "description": "The password you entered, to this account, is incorrect.",
+      "image": "/error/general.png"
+    },
+    "loginPasswordMismatch": {
+      "title": "FAILED TO LOGIN TO YOUR ACCOUNT",
+      "description": "The password you entered does not match. Please confirm the password.",
+      "image": "/error/general.png"
+    }
+  }
+  

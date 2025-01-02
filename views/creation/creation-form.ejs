@@ -1,0 +1,97 @@
+<div class="main-creation">
+    <h5>Petition Details</h5>
+    <form action="/petition/create" method="post" enctype="multipart/form-data">
+        <!-- Petition Scope -->
+        <h3>What is the scope of your petition?</h3>
+        <div class="container">
+            <div class="radio-tile-group">
+                <div class="input-container">
+                    <input id="global" type="radio" name="scope" value="Global">
+                    <div class="radio-tile">
+                        <ion-icon name="earth"></ion-icon>
+                        <label for="global">Global</label>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <input id="national" type="radio" name="scope" value="National">
+                    <div class="radio-tile">
+                        <ion-icon name="location"></ion-icon>
+                        <label for="national">National</label>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <input id="local" type="radio" name="scope" value="Local">
+                    <div class="radio-tile">
+                        <ion-icon name="home"></ion-icon>
+                        <label for="local">Local</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Petition Category -->
+        <h3>Define category for your petition.</h3>
+        <div class="container">
+            <div class="radio-tile-group">
+                <% templates.forEach(category => { %>
+                    <div class="input-container">
+                        <input id="<%= category.title %>" type="checkbox" name="category" value="<%= category.title %>">
+                        <div class="radio-tile">
+                            <ion-icon name="<%= category.icon %>"></ion-icon>
+                            <label for="<%= category.title %>"><%= category.title %></label>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+
+        <!-- Petition Title -->
+        <div class="inputBox">
+            <input type="text" required="required" maxlength="75" minlength="30" name="title">
+            <span>Petition Title</span>
+        </div>
+
+        <!-- Petition Description -->
+        <div class="inputBox">
+            <textarea class="textarea" placeholder="Write the description..." name="description" maxlength="800"></textarea>
+            <span>Description</span>
+        </div>
+
+        <!-- Petition Details -->
+        <div class="input-con1">
+            <input type="text" id="pto" autocomplete="off" placeholder="Enter the organisation/institution name the petition is to..." required class="text-input" name="petition_to" maxlength="80">
+            <label for="pto" class="label">Petition to</label>
+        </div>
+
+        <div class="input-con2">
+            <input type="text" id="pby" autocomplete="off" placeholder="Enter your name/community name..." required class="text-input" name="petition_by" maxlength="30">
+            <label for="pby" class="label">Author</label>
+        </div>
+
+        <div class="input-con3">
+            <input type="date" id="pdate" autocomplete="off" class="text-input" placeholder="Enter the date" name="petition_date">
+            <label for="pdate" class="label">Target Date</label>
+        </div>
+
+        <div class="input-con4">
+            <input type="text" id="plocation" autocomplete="off" placeholder="Pune, India" required class="text-input" name="location" maxlength="30">
+            <label for="plocation" class="label">Location</label>
+        </div>
+
+        <div class="input-con5">
+            <input type="number" id="targetSupporters" autocomplete="off" placeholder="Enter the number of supporters for petition to be successful..." required class="text-input" name="targetSupporters" min="1">
+            <label for="targetSupporters" class="label">Target Supporters</label>
+        </div>
+
+        <div class="petition-image">
+            <label for="image" class="image-p">Upload Image</label>
+            <input type="file" class="image-pet" name="image" accept="image/*" id="image" required />
+            <p class="file-name">No file chosen</p>
+        </div>
+
+        <div class="button-group">
+            <input type="submit" class ="submit-btn" value="Submit &raquo;">
+            <button type="button" class="clear-btn">Clear Form</button>
+        </div>
+    </form>
+</div>

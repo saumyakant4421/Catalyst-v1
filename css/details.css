@@ -1,0 +1,1023 @@
+@import url("./listings/navbar.css");
+
+/* Base Styles */
+* {
+    margin: 0;
+}
+
+body {
+    background-color: #1F2029;
+    color: #ffffff;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
+    background-repeat: no-repeat;
+    background-size: 500%;
+    background-position: bottom center;
+}
+
+/* Layout Components */
+.petition-details {
+    font-family: "Poppins", sans-serif;
+}
+
+#center-main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#center-main h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#center-main p {
+    font-size: 1.25rem;
+    font-weight: 200;
+    margin: 0.4rem;
+}
+
+#left-main {
+    float: left;
+    width: 55%;
+    margin: 2rem;
+    display: grid;
+    gap: 1.25rem;
+}
+
+#right-main {
+    float: right;
+    width: 30%;
+    margin: 2rem;
+    display: grid;
+    gap: 0.25rem;
+}
+
+/* Progress Bar and Support Section */
+.support-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.progress-bar {
+    height: 1.5rem;
+    background-color: #8C0181;
+    text-align: center;
+    color: #000000;
+    line-height: 1.5rem;
+    border-radius: 5px;
+}
+
+.petition-supporters {
+    text-align: center;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+/* Info Box Styles */
+.info-box {
+    background-color: rgba(240, 248, 255, 0.532);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.info-box p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #232323;
+}
+
+.info-box ion-icon {
+    font-size: 1.3rem;
+    color: #1F2029;
+}
+
+/* Petition Description */
+.petition-description {
+    background-color: rgba(240, 248, 255, 0.532);
+    color: #1F2029;
+    padding: 0.85rem;
+    border-radius: 1.25rem;
+    font-size: 1.25rem;
+    max-height: 20rem;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.petition-description::-webkit-scrollbar {
+    display: none;
+}
+
+/* Category Styles */
+.petition-category {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1rem;
+    background-color: rgba(240, 248, 255, 0.5);
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+.category-item ion-icon {
+    font-size: 1.5rem;
+    color: #1F2029;
+}
+
+.category-name {
+    font-family: 'Poppins', sans-serif;
+    color: #1F2029;
+}
+
+/* Target Entities */
+.petition-target-entities {
+    font-size: 1.5rem;
+}
+
+.target-entities-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+.target-entity-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.target-entity-item ion-icon {
+    margin-right: 0.3rem;
+    font-size: 1.75rem;
+    color: #8C0181;
+}
+
+/* Right Side Components */
+#right-main img {
+    max-width: 100%;
+    border-radius: 1rem;
+}
+
+.img-pet {
+    text-align: center;
+}
+
+/* Support Button */
+.support-petition {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0;
+}
+
+.sign-btn {
+    background: #8c0180e0;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+    max-width: 250px;
+}
+
+.sign-btn:hover {
+    background: #800c77;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sign-btn:active {
+    transform: scale(0.95) translateY(2px);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Base Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.607);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: #1F2029;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+}
+
+/* Terms Modal Specific Styles */
+.terms-modal-content {
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.terms-scroll-container {
+    max-height: 50vh;
+    overflow-y: auto;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #d5d4d4c4;
+    border-radius: 8px;
+    background-color: #6b6b6b3f;
+}
+
+.terms-content {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+.terms-content h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.terms-content h5 {
+    font-size: 16px;
+    margin: 15px 0 10px;
+}
+
+.terms-content p {
+    margin-bottom: 1rem;
+}
+
+/* Checkbox Styles */
+.terms-agreement {
+    margin: 20px 0;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+    color: #ffffff;
+}
+
+.checkbox-container input {
+    margin-right: 10px;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+/* Modal Buttons */
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 120px;
+}
+
+#sign-confirm-btn {
+    background-color: #8C0181;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+#sign-confirm-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.close-modal-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Thank You Modal Styles */
+.home-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #8C0181;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+    transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: #800c77;
+}
+
+/* Login Prompt */
+.login-prompt {
+    background: rgba(140, 1, 128, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    margin: 0.45rem 0;
+    width: 100%;
+}
+
+.login-prompt p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #8C0181 0%, #800c77 100%);
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(140, 1, 129, 0.2);
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(140, 1, 129, 0.3);
+}
+
+.login-button ion-icon {
+    font-size: 1.2rem;
+}
+
+/* Status Box */
+.status-box {
+    background: rgba(240, 248, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.status-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+    color: #ffffff;
+}
+
+.status-content {
+    display: flex;
+    justify-content: center;
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.status-badge ion-icon {
+    font-size: 1.2rem;
+}
+
+.status-badge.active {
+    background: rgba(46, 213, 115, 0.2);
+    color: #2ed573;
+}
+
+.status-badge.success {
+    background: rgba(54, 174, 255, 0.2);
+    color: #36aeff;
+}
+
+.status-badge.closed {
+    background: rgba(255, 71, 87, 0.2);
+    color: #ff4757;
+}
+
+/* Scrollbar Styles */
+.terms-scroll-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terms-scroll-container::-webkit-scrollbar-track {
+    background: rgba(241, 241, 241, 0.1);
+    border-radius: 4px;
+}
+
+.terms-scroll-container::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.5);
+    border-radius: 4px;
+}
+
+.terms-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(85, 85, 85, 0.7);
+}
+
+/* Share Modal Styles */
+.share-modal-content {
+    max-width: 500px;
+}
+
+.share-link-container {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#share-link {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid rgba(140, 1, 129, 0.3);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+#copy-link-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: #8C0181;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+#copy-link-btn:hover {
+    background: #800c77;
+}
+
+#copy-link-btn ion-icon {
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    #left-main, #right-main {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .petition-details {
+        padding: 1rem;
+    }
+    
+    #left-main, #right-main {
+        width: 90%;
+        margin: 1rem auto;
+        float: none;
+    }
+    
+    #right-main img {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .support-section {
+        max-width: 500px;
+        margin: 1rem auto;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+        margin: 1rem;
+        max-height: 85vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #center-main h1 {
+        font-size: 1.75rem;
+        padding: 0 1rem;
+    }
+    
+    .petition-description {
+        font-size: 1rem;
+        max-height: 15rem;
+    }
+    
+    .info-container {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .scope-box, .share-box {
+        width: 100%;
+    }
+    
+    .status-box {
+        margin: 1rem 0;
+    }
+    
+    .petition-target-entities {
+        font-size: 1.25rem;
+    }
+    .terms-scroll-container {
+        padding: 15px;
+        max-height: 40vh;
+    }
+    .terms-content h4 {
+        font-size: 16px;
+    }
+    .terms-content h5 {
+        font-size: 14px;
+    }
+    .terms-content {
+        font-size: 13px;
+    }
+    .modal-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .modal-buttons button {
+        width: 100%;
+    }
+    .checkbox-container {
+        font-size: 13px;
+    }
+    .share-link-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    #copy-link-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+    
+@media screen and (max-width: 480px) {
+#center-main h1 {
+    font-size: 1.5rem;
+}
+
+#center-main p {
+    font-size: 1rem;
+}
+
+.petition-description {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+}
+
+.login-prompt {
+    padding: 1rem;
+}
+
+.login-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+}
+
+.status-badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+.target-entity-item ion-icon {
+    font-size: 1.5rem;
+}
+
+.share-link-container {
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#copy-link-btn {
+    width: 100%;
+    justify-content: center;
+}
+
+ .scope-label, .share-label {
+    font-size: 0.8rem;
+}
+
+ .scope-value {
+    font-size: 0.9rem;
+}
+
+ .share-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+}
+
+.category-item {
+    font-size: 0.9rem;
+}
+
+ .modal-content {
+    padding: 1rem;
+    margin: 0.5rem;
+}
+
+ .terms-scroll-container {
+    padding: 10px;
+    margin: 10px 0;
+}
+
+ .terms-content h4 {
+    font-size: 15px;
+}
+
+ .terms-content {
+    font-size: 12px;
+}
+
+ .home-button {
+    padding: 10px 20px;
+    font-size: 14px;
+}
+}
+  
+/* Info Container */
+.info-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.scope-box, .share-box {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(140, 1, 129, 0.15) 0%, rgba(128, 12, 119, 0.25) 100%);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.scope-box {
+    background: linear-gradient(135deg, rgba(140, 1, 129, 0.15) 0%, rgba(128, 12, 119, 0.25) 100%);
+    border: 1px solid rgba(140, 1, 129, 0.2);
+}
+
+.scope-icon, .share-icon {
+    background: rgba(140, 1, 129, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scope-icon ion-icon, .share-icon ion-icon {
+    font-size: 1.5rem;
+    color: #8C0181;
+}
+
+.scope-content, .share-content {
+    flex: 1;
+}
+
+.scope-label, .share-label {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.scope-value {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+/* Verification Badge */
+p.petition-verification {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin: 0.5rem auto;
+    max-width: 150px;
+}
+
+
+.ver-text {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    text-align: center;
+}
+
+/* Share Button Styles */
+.share-button {
+    background: rgba(140, 1, 129, 0.3);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.share-button:hover {
+    background: rgba(140, 1, 129, 0.5);
+    transform: translateY(-1px);
+}
+
+/* Share Modal Styles */
+.share-modal-content {
+    max-width: 500px;
+    width: 90%;
+}
+
+.share-modal-content h3 {
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.share-link-container {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#share-link {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid rgba(140, 1, 129, 0.3);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+#copy-link-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: #8C0181;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+#copy-link-btn:hover {
+    background: #800c77;
+}
+
+#copy-link-btn ion-icon {
+    font-size: 1.2rem;
+}
+
+/* Modal Close Button */
+.close-modal-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.close-modal-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Additional Modal Styles */
+.modal-content img {
+    width: 6rem;
+    margin-bottom: 1rem;
+}
+
+/* Additional Animation Styles */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-content {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Print Styles */
+@media print {
+    .modal,
+    .share-button,
+    .login-prompt,
+    .support-petition {
+        display: none !important;
+    }
+
+    body {
+        background: none;
+        color: #000000;
+    }
+
+    .petition-description,
+    .info-box,
+    .scope-box,
+    .share-box {
+        background: none;
+        border: 1px solid #cccccc;
+        color: #000000;
+    }
+
+    #center-main h1 {
+        color: #000000;
+    }
+
+    .status-badge {
+        border: 1px solid currentColor;
+    }
+}
+
+/* Focus Styles for Accessibility */
+.sign-btn:focus,
+.share-button:focus,
+.login-button:focus,
+.close-modal-btn:focus,
+#copy-link-btn:focus,
+#share-link:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* Loading State Styles */
+.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Enhanced Error State Styles */
+.error-state {
+    border-color: #ff4757;
+    background-color: rgba(255, 71, 87, 0.1);
+}
+
+.error-message {
+    color: #ff4757;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.error-message ion-icon {
+    font-size: 1.1rem;
+}
+
+/* Hover Effects Enhancement */
+.category-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(140, 1, 129, 0.2);
+    transition: all 0.3s ease;
+}
+
+.info-box:hover,
+.scope-box:hover,
+.share-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(140, 1, 129, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Custom Selection Styles */
+::selection {
+    background: rgba(140, 1, 129, 0.3);
+    color: #ffffff;
+}
+
+/* High Contrast Mode Support */
+@media (forced-colors: active) {
+    .sign-btn,
+    .login-button,
+    .share-button,
+    .close-modal-btn,
+    #copy-link-btn {
+        border: 2px solid currentColor;
+    }
+
+    .progress-bar {
+        border: 1px solid currentColor;
+    }
+}
+
+@media print {
+    .modal,
+    .share-button,
+    .login-prompt,
+    .support-petition {
+        display: none !important;
+    }
+
+    body {
+        background: none;
+        color: #000000;
+    }
+
+    .petition-description,
+    .info-box,
+    .scope-box,
+    .share-box {
+        background: none;
+        border: 1px solid #cccccc;
+        color: #000000;
+    }
+
+    #center-main h1 {
+        color: #000000;
+    }
+
+    .status-badge {
+        border: 1px solid currentColor;
+    }
+}
+
+

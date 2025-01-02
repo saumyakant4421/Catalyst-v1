@@ -1,0 +1,31 @@
+<footer class="footer">
+    <section class = "footer-main">
+        <!-- <div class = "name-text"> -->
+            <h2 class = "name">Catalyst</h2>
+        <!-- </div> -->
+        <div class = "footer-links">
+            <h2 class = "links-text">Socials</h2>
+            <% footerData.socials.forEach((social) => { %>
+                <a class="footer-link" target="_blank" href="<%= social.URL %>">
+                  <img class="footer-link-image" src="<%= social.image %>" />
+                </a>
+                <% }) %>
+        </div>
+
+
+        
+        <div class = "footer-content">
+            <h2 class = "links-text">Quicks</h2>
+            <ul class="menu">
+              <% footerData.menuLinks.forEach(link => { %>
+                <li class="menu__item">
+                  <a class="menu__link" href="<%= link.url %>"><%= link.name %></a>
+                </li>
+              <% }) %>
+            </ul>
+            
+        </div>    
+    </section>
+    <p>&copy;2024 Catalyst for Change | All Rights Reserved</p>
+</footer>
+  

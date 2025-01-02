@@ -1,0 +1,22 @@
+@import url("./error/navbar.css");
+@import url("./error/errors.css");
+
+* {
+  scroll-behavior: smooth;
+  text-decoration: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  z-index: -2;
+  background-size: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/errors/error.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height:100vh;
+}
+

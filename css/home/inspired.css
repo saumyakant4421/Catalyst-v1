@@ -1,0 +1,147 @@
+/* Inspired Section */
+#inspired-section {
+    padding: 1px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 8%;
+}
+
+/* Main Content */
+.inspired-main {
+    max-width: 55rem;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+/* Text Section */
+#inspired-text {
+    margin: 0 auto;
+    margin-top: 0.5rem;
+}
+
+h3 {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.75rem;
+    color: white;
+    margin-bottom: 0.60rem;
+}
+
+/* Image Section */
+.inspired-image {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0.5rem auto 0; */
+
+}
+
+#img-1 {
+    height: 6.5rem;
+    width: auto;
+    object-fit: contain;
+}
+
+#img-2 {
+    height: 2rem;
+    width: auto;
+    margin-top: 3rem;
+    object-fit: contain;
+}
+
+#img-3 {
+    height: 3rem;
+    width: auto;
+    margin-top: 2rem;
+    object-fit: contain;
+}
+
+/* Quote Section */
+.inspired-quote {
+    margin: 3rem auto 0;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.quote-text {
+    font-family: "Poppins", sans-serif;
+    font-size: 2.55rem;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #inspired-section {
+        flex-direction: column;
+    }
+
+    .inspired-main {
+        width: 90%;
+    }
+
+    .inspired-image {
+        flex-direction: row;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    #img-1 {
+        height: 4rem;
+        margin: 0;
+    }
+
+    #img-2 {
+        height: 1.5rem;
+        margin-top: 0;
+    }
+
+    #img-3 {
+        height: 2rem;
+        margin-top: 0;
+    }
+
+    .quote-text {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .inspired-image {
+        gap: 1.5rem;
+    }
+
+    #img-1 {
+        height: 3rem;
+    }
+
+    #img-2 {
+        height: 1.2rem;
+    }
+
+    #img-3 {
+        height: 1.5rem;
+    }
+
+    .quote-text {
+        font-size: 1.5rem;
+    }
+
+    .inspired-main,
+    .inspired-quote {
+        padding: 0 0.5rem;
+    }
+}

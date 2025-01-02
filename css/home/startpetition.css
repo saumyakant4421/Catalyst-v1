@@ -1,0 +1,98 @@
+#start-petition-section {
+    height: 15rem;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 1rem;
+    background-image: url('/crowd.png');
+    background-repeat: repeat-x;
+    background-size: 50%;
+    background-position: center;
+    background-color: rgba(31, 32, 41, 0.5);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#start-link-container {
+    background-color: rgba(31, 32, 41, 0.5);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    padding: 1rem;
+}
+
+#start-petition-section:hover {
+    transform: scale(1.01);
+}
+
+img.pen-image {
+    height: clamp(2.5rem, 4vw, 4.5rem);
+    width: auto;
+    object-fit: contain;
+}
+
+a.start-main {
+    height: clamp(2.5rem, 4vw, 3.5rem);
+    border: 1px solid rgb(255, 255, 255);
+    width: clamp(15rem, 50vw, 30rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 8px;
+    transition: all 200ms linear;
+    box-shadow: 5px 5px #ffffff;
+    text-decoration: none;
+}
+
+a.start-main:hover {
+    filter: drop-shadow(0 0 0.35rem rgba(255, 255, 255, 0.5));
+    transform: translate(0, 0);
+    box-shadow: 0 0 0.35rem rgba(255, 255, 255, 0.8);
+    border: 2px solid beige;
+    transform: scale(1.01);
+    background-color: #F93075;
+    color: #000000;
+}
+
+h3.start-text {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+    #start-petition-section {
+        height: 12rem;
+    }
+    
+    #start-link-container {
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #start-petition-section {
+        height: 10rem;
+        background-size: 75%;
+    }
+    
+    #start-link-container {
+        gap: 0.5rem;
+    }
+}

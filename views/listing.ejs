@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petitions in <%= category %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- #endregion Google Font Server -->
+    <!-- #region Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/listing.css">
+</head>
+<body>
+    
+    <header><%- include("./listing/navbar.ejs") %></header>
+
+<section id = "listing-content">
+    <div class="filter-container">
+        <h1>Petitions in <%= category %></h1>
+        <div class="filters">
+            <!-- Custom Category Dropdown -->
+            <div class="custom-dropdown" id="category-dropdown">
+                <div class="dropdown-selected">Filter by Category</div>
+                <ul class="dropdown-options">
+                    <% ['Environment', 'Economic Justice', "Women's Rights", 'Education', 'Disability', 'Sports', 'Entertainment and Media', 'Digital Rights']
+                    .forEach(cat => { %>
+                        <li data-value="<%= cat %>" <%= category === cat ? 'class="selected"' : '' %>><%= cat %></li>
+                    <% }) %>
+                </ul>
+            </div>
+        
+            <!-- Custom Sort Dropdown -->
+            <div class="custom-dropdown" id="sort-dropdown">
+                <div class="dropdown-selected">Sort by</div>
+                <ul class="dropdown-options">
+                    <li data-value="newest">Newest to Oldest</li>
+                    <li data-value="oldest">Oldest to Newest</li>
+                    <li data-value="supporters">Most Supporters</li>
+                </ul>
+            </div>
+        </div>        
+    </div>
+
+    <div class="petition-grid">
+        <% petitions.forEach(petition => { %>
+        <div class="petition-card">
+            <% if (petition.verified === 'Y') { %>
+                <span class="verified-icon"><img src = "/verified4.png"></span>
+            <% } %>
+            <img class="petition-image" src="<%= petition.image %>" alt="Petition Image"onerror="this.onerror=null; this.src='/categorysection.png';">
+            <h3 class="petition-title"><%= petition.title %></h3>
+            <p class="petition-supporters">Supporters: <%= petition.supporters.length %></p>
+            <p class="petition-author">Author: <%= petition.authors[0] %></p>
+            <a href="/petition/<%= petition._id %>" class="sign-btn">Sign Now</a>
+        </div>
+        <% }) %>
+    </div>
+</section>
+      
+    <script src="/listing.js"></script>
+</body>
+</html>

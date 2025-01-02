@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= petition.title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/details.css">
+</head>
+<body>
+    <header><%- include("./listing/navbar.ejs") %></header>
+
+    <div class="petition-details" data-supporters="<%= dataSupporters %>" data-target-supporters="<%= dataTargetSupporters %>">
+        <section id="center-main">
+            <h1><%= petition.title %></h1>
+            <p><strong>Author: </strong> <%= petition.authors?.[0] || 'Unknown' %></p>
+        </section>
+        
+        <section id="left-main">
+            <span class="petition-category">
+                <% templates.forEach(templateCategory => { %>
+                    <% if (petition.category.some(cat => cat.toLowerCase() === templateCategory.title.toLowerCase())) { %>
+                        <div class="category-item">
+                            <ion-icon name="<%= templateCategory.icon %>"></ion-icon>
+                            <span class="category-name"><%= templateCategory.title %></span>
+                        </div>
+                    <% } %>
+                <% }); %>
+            </span>
+            
+            <p class="petition-description"><strong style="text-align: center;">Why This Petition Matters</strong> <br><%= petition.description || 'No description available.' %>
+            </p>
+            <p class="petition-target-entities"><strong>Target Entities:</strong> </p>
+            <ul class="target-entities-list">
+                <% if (Array.isArray(petition.targetEntities) && petition.targetEntities.length > 0) { %>
+                    <% petition.targetEntities.forEach(entity => { %>
+                        <li class="target-entity-item">
+                            <ion-icon name="caret-forward-circle-outline"></ion-icon> <%= entity %>
+                        </li>
+                    <% }); %>
+                <% } else { %>
+                    <li>No target entities available</li>
+                <% } %>
+            </ul>
+            
+
+
+            <div class="info-container">
+                <div class="scope-box">
+                    <div class="scope-icon">
+                        <ion-icon name="compass-outline"></ion-icon>
+                    </div>
+                    <div class="scope-content">
+                        <p class="scope-label"><strong>Scope</strong></p>
+                        <p class="scope-value"><%= petition.scope || 'N/A' %></p>
+                    </div>
+                </div>
+            
+                <div class="share-box">
+                    <div class="share-icon">
+                        <ion-icon name="share-social-outline"></ion-icon>
+                    </div>
+                    <div class="share-content">
+                        <p class="share-label"><strong>Share to Spark Change</strong></p>
+                        <button id="share-btn" class="share-button">Share Petition</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <p class="petition-target-date"><ion-icon name="disc"></ion-icon><strong>Target Date: </strong><%= petition.targetDate ? petition.targetDate.toDateString() : 'N/A' %></p>
+            </div>
+        
+            <!-- Add this new modal structure after your existing modals -->
+            <div id="share-modal" class="modal hidden">
+                <div class="share-modal-content modal-content">
+                    <h3>Share this Petition</h3>
+                    <div class="share-link-container">
+                        <input type="text" id="share-link" readonly>
+                        <button id="copy-link-btn">
+                            <ion-icon name="copy-outline"></ion-icon>
+                            Copy
+                        </button>
+                    </div>
+                    <button class="close-modal-btn">Close</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="right-main">
+            <div class="img-pet">
+                <img src="<%= petition.image || '/assets/default-image.jpg' %>" alt="Petition Image" loading="lazy">
+            </div>
+
+            <div class="support-section">
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+                <p class="petition-supporters"><strong>Supporters: </strong><%= petition.supporters.length %> / <%= petition.targetSupporters %></p>
+                
+                <div class="support-petition">
+                    <% if (user && user._id) { %>
+                        <button id="sign-petition-btn" class="sign-btn">Support this Petition</button>
+                    <% } else { %>
+                        <div class="login-prompt">
+                            <p>Want to make a difference?</p>
+                            <a href="/#account-section" class="login-button">
+                                <span>Sign in to Support</span>
+                                <ion-icon name="arrow-forward-outline"></ion-icon>
+                            </a>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+
+            <div class="status-box">
+                <h3>Petition Status</h3>
+                <div class="status-content">
+                    <% if (petition.status === "closed") { %>
+                        <span class="status-badge closed">
+                            <ion-icon name="ban"></ion-icon>
+                            Closed
+                        </span>
+                    <% } else if (petition.status === "success") { %>  
+                        <span class="status-badge success">
+                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                            Successful
+                        </span>
+                    <% } else { %>
+                        <span class="status-badge active">
+                            <ion-icon name="radio-button-on"></ion-icon>
+                            Active
+                        </span>
+                    <% } %>
+                </div>
+            </div>
+
+            <p class="petition-verification">
+                <% if (petition.verified == "Y") { %>
+                    <div class = "ver-text">This is a Verified Petition!</div>
+                <% } %>
+            </p>
+        </section>
+    </div>
+
+      <!-- New Terms and Conditions Modal -->
+      <div id="terms-modal" class="modal hidden">
+        <div class="modal-content terms-modal-content">
+            <h3>Terms and Conditions</h3>
+            <div class="terms-scroll-container">
+                <div class="terms-content">
+                    <h4>Petition Signing Agreement</h4>
+                    <p>By signing this petition, you acknowledge and agree to the following terms and conditions:</p>
+
+                    <h5>1. Authenticity and Accuracy</h5>
+                    <p>You confirm that all information provided is true and accurate. You understand that providing false information may invalidate your signature and could have legal consequences.</p>
+
+                    <h5>2. Personal Information Usage</h5>
+                    <p>You consent to the collection and processing of your personal information for the purpose of this petition. Your information will be handled in accordance with applicable privacy laws and regulations.</p>
+
+                    <h5>3. Communication</h5>
+                    <p>You may receive updates about this petition's progress and related advocacy efforts. You can opt out of these communications at any time.</p>
+
+                    <h5>4. Signature Validity</h5>
+                    <p>Your signature represents your genuine support for this cause. Multiple signatures from the same individual are not permitted and may be removed.</p>
+
+                    <h5>5. Public Display</h5>
+                    <p>Your name may appear in the public list of supporters. The total number of signatures will be publicly displayed to demonstrate the petition's support.</p>
+
+                    <h5>6. Responsibility</h5>
+                    <p>While we strive for positive change, we cannot guarantee specific outcomes from this petition. Your signature represents support for the cause, not a guarantee of results.</p>
+
+                    <h5>7. Civil Discourse</h5>
+                    <p>You agree to engage in respectful discourse regarding this petition. Any associated comments or feedback should maintain professional and constructive dialogue.</p>
+
+                    <h5>8. Withdrawal Rights</h5>
+                    <p>You may request to withdraw your signature by contacting the petition administrators, though this may not be possible once the petition has been submitted to target entities.</p>
+                </div>
+            </div>
+            <div class="terms-agreement">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="agree-checkbox">
+                    <span class="checkmark"></span>
+                    I have read and agree to the terms and conditions
+                </label>
+            </div>
+            <div class="modal-buttons">
+                <button id="sign-confirm-btn" disabled>Sign Petition</button>
+                <button class="close-modal-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Updated Thank You Modal -->
+    <div id="thank-you-modal" class="modal hidden">
+        <div class="modal-content">
+            <img src ="/thank-you.png">
+            <p id="modal-message"></p>
+            <a href="/" class="home-button">Go to Homepage</a>
+        </div>
+    </div>   
+
+    <script type="module" src = "/details.js">
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> 
+</body>
+</html>

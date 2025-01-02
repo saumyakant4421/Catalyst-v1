@@ -1,0 +1,138 @@
+* {
+    scroll-behavior: smooth;
+    text-decoration: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; 
+    overflow: hidden; 
+}
+
+body {
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/errors/error.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: aliceblue;
+    font-family: "Poppins", sans-serif;
+}
+
+p{
+    font-family: "Poppins", sans-serif;
+    text-shadow: 4px 4px #000;
+    font-weight: 250;
+    font-size: 2rem;
+    cursor: default;
+    color: #fff;
+    
+    
+}
+
+h1{
+    text-shadow: 4px 4px #000;
+    font-weight: 600;
+    font-size: 3rem;
+}
+
+.error-links-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.error-link {
+    box-shadow: 4px 4px #00000080;
+    padding: 0.6rem 2.5rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+    color: #fff;
+    font-size: 1rem;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.error-link.home {
+    background-color: #c5000010;
+    border: 2px solid #be0042;
+}
+
+.error-link.other {
+    background-color: #8402af10;
+    border: 2px solid #730069;
+}
+
+.error-link:hover::after {
+    width: 100%;
+}
+
+.error-link-image {
+    width: 20px;
+    height: auto;
+}
+
+.error-link-text {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        background-size: 100%;
+    }
+
+    .error-link-text {
+        font-size: 1rem;
+    }
+
+    .error-link {
+        padding: 0.4rem 1.5rem;
+    }
+}
+
+.error-link.home::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #be0042;
+    z-index: -1;
+    transition: width 0.4s ease;
+}
+
+.error-link.other::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #730069; 
+    z-index: -1;
+    transition: width 0.4s ease;
+}
+
+
+.error-link:hover::after {
+    width: 100%;
+}
+
+.error-link.home:hover {
+    background-color: #be0042;
+}
+
+.error-link.other:hover {
+    background-color: #730069;
+}

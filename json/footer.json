@@ -1,0 +1,37 @@
+{
+    "socialLinks": [
+      { "name": "logo-facebook", "url": "https://facebook.com" },
+      { "name": "logo-twitter", "url": "https://twitter.com" },
+      { "name": "logo-linkedin", "url": "https://linkedin.com" },
+      { "name": "logo-instagram", "url": "https://instagram.com" }
+    ],
+    "menuLinks": [
+      { "name": "Home", "url": "/" },
+      { "name": "About", "url": "/about" },
+      { "name": "Services", "url": "/services" },
+      { "name": "Team", "url": "/team" }
+      
+    ],
+
+
+    "socials": [
+      {
+        "URL": "https://www.github.com/",
+        "image": "/buttons/github.png"
+      },
+      {
+        "URL": "https://www.instagram.com/",
+        "image": "/buttons/insta.png"
+      },
+      {
+        "URL": "https://www.twitter.com/",
+        "image": "/buttons/twitter.png"
+      },
+      {
+        "URL": "https://www.facebook.com/",
+        "image": "/buttons/linkedin.png"
+      }
+    ]
+  
+}
+  

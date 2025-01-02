@@ -1,0 +1,32 @@
+@import url("./home/navbar.css");
+@import url("./home/introduction.css");
+@import url("./home/marquee.css");
+@import url("./home/categories.css");
+@import url("./home/inspired.css");
+@import url("./home/account.css");
+@import url("./home/insights.css");
+@import url("./home/featured.css");
+@import url("./home/startpetition.css");
+@import url("./home/footer.css");
+
+
+* {
+    scroll-behavior: smooth;
+    text-decoration: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+  
+body {
+    background-color: #1f2029;
+    position: relative;
+    z-index: -2;
+    max-width: 100vw; 
+    overflow-x: hidden; 
+}
+
+
+
+
+  

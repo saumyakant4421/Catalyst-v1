@@ -1,0 +1,50 @@
+<nav>
+    <article class="nav-links-container">
+        <!-- Navigation Choices -->
+        <div class="nav-choice-containers">
+            <% header.choice.forEach((list) => { %>
+                <a class="nav-links" href="<%= list.URL %>">
+                    <p class="nav-link-text"><%= list.name %></p>
+                </a>
+            <% }) %>
+        </div>
+
+        <!-- Logo -->
+        <div class="nav-logo">
+            <a class="nav-logo-link" href="/">
+                <h4 class="nav-logo">Catalyst</h4>
+              </a>
+        </div>
+
+        <!-- User Authentication Section -->
+        <div class="personal-auth-container">
+            <% if (account !== undefined) { %>
+                <!-- Link to My Listings -->
+                <a class="nav-petition-link" href="/myListings">
+                    <img class="nav-petition-link-image" src="/archives.png" />
+                    <p class="nav-petition-link-text">My Listings</p>
+                </a>
+              
+                <!-- User Profile -->
+                <div class="nav-profile-container">
+                    <img class="nav-profile-image" src="/user.png" />
+                    <h3 class="nav-profile-username"><%= username %></h3>
+                </div>
+            <% } else { %>
+                <!-- Register/Login -->
+                <a class="nav-register-link" href="#account-section">
+                    <img class="nav-register-link-image" src="/signup.png" />
+                    <p class="nav-register-link-text">Register/Login</p>
+                </a>
+
+                <!-- About Section -->
+                <div class="nav-about">
+                    <a class="nav-about-link" href="#footer-section">
+                        <img class="nav-about-image" src="/about.png" />
+                        <p class="nav-about-text">About</p>
+                    </a>
+                </div>
+            <% } %>
+        </div>
+    </article>
+</nav>

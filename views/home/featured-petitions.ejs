@@ -1,0 +1,44 @@
+<section id="featured-petitions">
+  <h2 class="featured-text">Featured Petitions</h2>
+  <div class="scroll-container">
+    <% featuredPetitions.forEach((petition) => { %>
+      <div class="petition-card">
+        <div class="petition-image-container">
+          <img class="petition-image-f" src="<%= petition.image %>" alt="<%= petition.title %>" onerror="this.src='/default-petition-image.jpg'">
+          <% if (petition.category && petition.category.length > 0) { %>
+            <div class="petition-category">
+              <% petition.category.slice(0, 2).forEach(cat => { %>
+                <span class="category-tag"><%= cat %></span>
+              <% }); %>
+            </div>
+          <% } %>
+        </div>
+
+        <div class="petition-content">
+          <h3 class="petition-title"><%= petition.title %></h3>
+          
+          <div class="petition-stats">
+            <div class="petition-supporters">
+              <ion-icon name="people-outline"></ion-icon>
+              <span><%= petition.supporterCount %> of <%= petition.targetSupporters %> Supporters</span>
+            </div>
+            
+            <!-- <div class="petition-author">
+              <ion-icon name="person-outline"></ion-icon>
+              <span>Created by: <%= petition.author %></span>
+            </div> -->
+
+            <% if(petition.targetDate) { %>
+              <div class="petition-deadline">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <span>Due <%= new Date(petition.targetDate).toLocaleDateString() %></span>
+              </div>
+            <% } %>
+          </div>
+
+          <a href="/petition/<%= petition._id %>" class="sign-btn">Sign Now</a>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</section>

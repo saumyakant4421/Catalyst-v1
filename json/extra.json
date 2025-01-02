@@ -1,0 +1,22 @@
+
+{   
+  "title": "Welcome to Catalyst",
+  "description": "A platform for petitions and social change.",
+  "featured": true,
+  "sections": [
+    {
+      "name": "About",
+      "content": "Catalyst is a platform where users can create and sign petitions to bring about positive change."
+    },
+    {
+      "name": "How It Works",
+      "content": "Users can create petitions, gather signatures, and push for change in society."
+    },
+    {
+      "name": "Contact Us",
+      "content": "For inquiries, please email us at contact@catalyst.com."
+    }
+  ],
+  "footer": "Catalyst | All rights reserved."
+}
+

@@ -1,0 +1,65 @@
+{   
+    "header": {
+        "choice": [
+            {
+                "URL": "",
+                "name": "Sign Petitions"
+            },
+            {
+                "URL": "#start-petition-section",
+                "name": "Start Petition"                
+            }
+        ]
+    },
+    "templates": 
+    [     
+        {
+            "title": "Environment",
+            "icon": "leaf",
+            "description": "Addressing critical environmental issues...",
+            "URL": "/listing/Environment"
+        },
+        {
+            "title": "Economic Justice",
+            "icon": "analytics",
+            "description": "Advocating for equitable financial systems...",
+            "URL": "/listing/Economic%20Justice"
+        },
+        {
+            "title": "Women's Rights",
+            "icon": "female",
+            "description": "Championing equality, safety, and empowerment...",
+            "URL": "/listing/Women's%20Rights"
+        },
+        {
+            "title": "Education",
+            "icon": "school",
+            "description": "Promoting access to quality education...",
+            "URL": "/listing/Education"
+        },
+        {
+            "title": "Disability",
+            "icon": "accessibility",
+            "description": "Ensuring inclusion, accessibility, and equal opportunities...",
+            "URL": "/listing/Disability"
+        },
+        {
+            "title": "Sports",
+            "icon": "football-outline",
+            "description": "Encouraging the growth of sports and recreation...",
+            "URL": "/listing/Sports"
+        },
+        {
+            "title": "Entertainment and Media",
+            "icon": "videocam-outline",
+            "description": "Promoting creativity, cultural expression...",
+            "URL": "/listing/Entertainment%20and%20Media"
+        },
+        {
+            "title": "Digital Rights",
+            "icon": "globe-outline",
+            "description": "Safeguarding individuals' access, privacy, and freedom...",
+            "URL": "/listing/Digital%20Rights"
+        }    
+    ]
+}

@@ -1,0 +1,16 @@
+<section class="categories-viz">
+    <h1>Explore by Categories</h1>
+    <div class="categories-choice">
+      <% templates.forEach((template) => { %>
+        <a class="choice-item" href="<%= template.URL %>">
+       
+          <h2 class="choice-text"><%= template.title %></h2>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+  
+  <section class="categories-content">
+    <img class="cate-image" src="/categorysection.png">
+  </section>
+  

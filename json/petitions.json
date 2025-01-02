@@ -1,0 +1,23 @@
+[
+    {
+      "image": "/petitions/petition1.jpg",
+      "title": "Save the Forests and Protect Biodiversity for the Future of Our Planet",
+      "supporters": 1800,
+      "author": "Green Earth Initiative",
+      "id": "petition-1"
+    },
+    {
+      "image": "/petitions/petition2.jpg",
+      "title": "Education for All: Ensuring Equal Opportunities to Knowledge Worldwide",
+      "supporters": 1500,
+      "author": "Right to Education Org",
+      "id": "petition-2"
+    },
+    {
+      "image": "/petitions/petition3.jpg",
+      "title": "Clean Water Access to Improve Health and Well-being Everywhere",
+      "supporters": 1200,
+      "author": "Water Warriors",
+      "id": "petition-3"
+    }
+]

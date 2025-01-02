@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petition Error</title>
+    <link rel="stylesheet" href="/creation/error.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- #endregion Google Font Server -->
+    <!-- #region Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+    <div class = "content" style="text-align: center; margin-top: 15%;">
+        <h1>❌ Error!</h1>
+        <p><%= errorMessage || "An unexpected error occurred. Please try again later." %></p>
+
+        <div class="error-links-container">
+            <a class="error-link home" href="/">
+                <img class="error-link-image" src="/errors/homepage.png" alt="Home Icon" />
+                <h4 class="error-link-text">Home</h4>
+            </a>
+
+            <!-- <a class="error-link other" href="/petition/start">
+                <img class="error-link-image" src="/errors/reset.png" alt="Try Again Icon" />
+                <h4 class="error-link-text">Try Again</h4>
+            </a> -->         
+        </div>
+    </div>
+</body>
+</html>

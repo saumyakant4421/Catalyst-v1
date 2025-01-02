@@ -1,0 +1,98 @@
+/*---------------------------------------------------------------*/
+/*------------------------ NAVBAR STYLES ------------------------*/
+/*---------------------------------------------------------------*/
+
+nav {
+  background-color: transparent;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  height: clamp(4.5rem, 9vw, 7rem); /* Increased height */
+  padding: 0.75rem 1rem; /* Adjusted padding for more space */
+  z-index: 5;
+  width: 100%;
+  max-width: 100vw; /* Prevent stretching beyond the viewport */
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden; /* Ensure content stays within bounds */
+}
+
+.nav-logo {
+  font-family: "Poppins", sans-serif;
+  transition: transform 450ms ease;
+  text-shadow: 2px 2px #730069;
+  letter-spacing: clamp(1px, 0.15vw, 2px);
+  font-size: clamp(1.5rem, 3vw, 2.5rem); /* Slightly larger font for better visibility */
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  padding-left: clamp(1rem, 2vw, 2rem);
+}
+
+.nav-logo-err {
+  width: clamp(6rem, 12vw, 8rem);
+  object-fit: contain;
+  aspect-ratio: 3/2;
+  filter: brightness(1.1) contrast(1.2) drop-shadow(0 0 5px black);
+  image-rendering: smooth;
+  padding-right: clamp(1rem, 2vw, 2rem);
+}
+
+/*---------------------------------------*/
+/*------------- TRANSITIONS -------------*/
+/*---------------------------------------*/
+
+.nav-logo-link:hover .nav-logo {
+  transform: translateY(-5px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  nav {
+      padding: 0.75rem; /* Adjusted padding for smaller screens */
+      grid-template-columns: 1fr auto;
+      height: clamp(4rem, 8vw, 6.5rem); /* Match logo height */
+  }
+  
+  .nav-logo {
+      text-shadow: 1px 1px #730069;
+      padding-left: 1rem;
+  }
+  
+  .nav-logo-err {
+      padding-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  nav {
+      grid-auto-flow: row;
+      height: auto;
+      gap: 1rem;
+      padding: 1rem 0.5rem;
+  }
+  
+  .nav-logo,
+  .nav-logo-err {
+      padding: 0;
+      justify-self: center;
+  }
+}
+
+/* For larger screens */
+@media screen and (min-width: 1200px) {
+  nav {
+      padding: 1.25rem 4rem;
+  }
+}
+
+/* Prevent elements from overflowing the viewport */
+body {
+  margin: 0;
+  overflow-x: hidden; /* Disable horizontal scrolling */
+}
+
+/*----------------------------------------------------*/
+/*-------------------- END OF CSS --------------------*/
+/*----------------------------------------------------*/

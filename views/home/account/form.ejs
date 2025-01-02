@@ -1,0 +1,87 @@
+
+  <form class="register-form" action="/account/<%= type %>" method="post" id="accountForm">
+    <% if(type === "create") { %>
+    <div class="input-container username"> 
+      <h3 class="input-label">Username</h3>
+      <input
+        spellcheck="false"
+        autocomplete="off"
+        name="username"
+        maxlength="15"
+        minlength="5" 
+        class="input"
+        type="text"
+        required
+      />
+    </div>
+    <% } %>
+  
+    <div class="input-container email">
+      <h3 class="input-label">Email</h3>
+      <input
+        autocomplete="off"
+        class="input"
+        type="email"
+        name="email"
+        required
+      />
+    </div>
+  
+    <div class="input-container password">
+      <h3 class="input-label">Password</h3>
+      <input
+        autocomplete="off"
+        type="password"
+        name="password"
+        class="input"
+        required
+      />
+    </div>
+  
+    <% if(type === "login") { %>
+    <div class="input-container password">
+      <h3 class="input-label">Confirm Password</h3>
+      <input
+        name="retypePassword"
+        autocomplete="off"
+        type="password"
+        class="input"
+        required
+      />
+    </div>
+    <% } %>
+  
+    <div class="input-buttons-container">
+      <div class = "form-buttons">
+        <% if(type === "login") { %>
+        <button class="input-button login" type="submit" id="submitButton">
+          <img class="input-button-image" src="/account/loginbtn.png" />
+          <h3 class="input-button-text">Login Profile</h3>
+        </button>
+        <% } else { %>
+        <button class="input-button login" type="submit">
+          <img class="input-button-image" src="/account/signupbtn.png" />
+          <h3 class="input-button-text">Create Profile</h3>
+        </button>
+        <% } %>
+      
+        <button class="input-button reset" type="reset">
+          <img class="input-button-image" src="/account/reset.png" />
+          <h3 class="input-button-text">Clear Form</h3>
+        </button>
+    </div>
+  
+      <a class="form-switch-button">
+        <% if(type === "login") { %>
+        <img class="form-switch-button-image" src="/account/signupbtn.png" />
+        <h3 class="form-switch-button-text">Signup Instead?</h3>
+        <% } else { %>
+        <img class="form-switch-button-image" src="/account/loginbtn.png" />
+        <h3 class="form-switch-button-text">Login Instead?</h3>
+        <% } %>
+      </a>
+    </div>
+  </form>
+  
+ 
+  

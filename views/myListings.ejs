@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Petitions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <!-- <link rel="stylesheet" href="/home/featured.css"> -->
+    <link rel="stylesheet" href="/myListings.css">
+</head>
+<body>
+    <div class="my-listings-page">
+         <!-- New Personal Details Section -->
+         <section class="personal-details">
+            <h2>Personal Details</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-label">Username</div>
+                    <div class="detail-value"><%= user.username %></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Email</div>
+                    <div class="detail-value"><%= user.email %></div>
+                </div>
+            </div>
+            
+            <div class="actions-container">
+                <a href="/change-password" class="action-btn primary">Change Password</a>
+                <form action="/logout" method="POST" style="margin: 0;">
+                    <button type="submit" class="action-btn primary" style="width: 100%;">Logout</button>
+                </form>
+                <form action="/deleteAccount" method="POST" style="margin: 0;" 
+                      onsubmit="return confirm('Warning: This will permanently delete your account and all associated petitions. Are you sure you want to continue?');">
+                    <button type="submit" class="action-btn danger" style="width: 100%;">
+                        Delete Account
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Section 2: Created Petitions -->
+        <section class="created-petitions">
+            <h2>Your Created Petitions</h2>
+            <div class="scroll-container">
+                <button class="scroll-button left" onclick="scrollContainer('left', 'created')">&lt;</button>
+                <div class="scroll-content" id="created-petitions-container">
+                    <% if (createdPetitions.length > 0) { %>
+                        <% createdPetitions.forEach(petition => { %>
+                            <div class="petition-card">
+                                <img src="<%= petition.image %>" alt="<%= petition.title %>" onerror="this.src='/default-petition-image.jpg'">
+                                <h3><%= petition.title %></h3>
+                                <div class="petition-stats">
+                                    <span><%= petition.supporters.length %> of <%= petition.targetSupporters %> Supporters</span>
+                                </div>
+                                <a href="/petition/<%= petition._id %>" class="sign-btn">View</a>
+                            </div>
+                        <% }); %>
+                    <% } else { %>
+                        <p>You haven't created any petitions yet.</p>
+                    <% } %>
+                </div>
+                <button class="scroll-button right" onclick="scrollContainer('right', 'created')">&gt;</button>
+            </div>
+        </section>
+
+        <!-- Section 3: Signed Petitions -->
+        <section class="signed-petitions">
+            <h2>Petitions You've Signed</h2>
+            <div class="scroll-container">
+                <button class="scroll-button left" onclick="scrollContainer('left', 'signed')">&lt;</button>
+                <div class="scroll-content" id="signed-petitions-container">
+                    <% if (signedPetitions.length > 0) { %>
+                        <% signedPetitions.forEach(petition => { %>
+                            <div class="petition-card">
+                                <img src="<%= petition.image %>" alt="<%= petition.title %>" onerror="this.src='/default-petition-image.jpg'">
+                                <h3><%= petition.title %></h3>
+                                <div class="petition-stats">
+                                    <span><%= petition.supporters.length %> of <%= petition.targetSupporters %> Supporters</span>
+                                </div>
+                                <a href="/petition/<%= petition._id %>" class="sign-btn">View</a>
+                            </div>
+                        <% }); %>
+                    <% } else { %>
+                        <p>You haven't signed any petitions yet.</p>
+                    <% } %>
+                </div>
+                <button class="scroll-button right" onclick="scrollContainer('right', 'signed')">&gt;</button>
+            </div>
+        </section>
+        
+    </div>
+
+    <script>
+        function scrollContainer(direction, type) {
+            const container = document.getElementById(`${type}-petitions-container`);
+            const scrollAmount = 320; // Width of card + gap
+            
+            if (direction === 'left') {
+                container.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else {
+                container.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+
+            // Update button states after scroll
+            setTimeout(() => {
+                updateScrollButtons(type);
+            }, 500);
+        }
+
+        function updateScrollButtons(type) {
+            const container = document.getElementById(`${type}-petitions-container`);
+            const section = container.closest('.scroll-container');
+            const leftButton = section.querySelector('.scroll-button.left');
+            const rightButton = section.querySelector('.scroll-button.right');
+
+            // Update left button
+            if (container.scrollLeft <= 0) {
+                leftButton.style.display = 'none';
+            } else {
+                leftButton.style.display = 'flex';
+            }
+
+            // Update right button
+            if (container.scrollLeft >= container.scrollWidth - container.clientWidth - 1) {
+                rightButton.style.display = 'none';
+            } else {
+                rightButton.style.display = 'flex';
+            }
+        }
+
+        // Initialize button states for both containers
+        document.addEventListener('DOMContentLoaded', function() {
+            updateScrollButtons('created');
+            updateScrollButtons('signed');
+
+            // Add scroll event listeners
+            ['created', 'signed'].forEach(type => {
+                const container = document.getElementById(`${type}-petitions-container`);
+                container.addEventListener('scroll', () => updateScrollButtons(type));
+            });
+        });
+    </script>
+</body>
+</html>

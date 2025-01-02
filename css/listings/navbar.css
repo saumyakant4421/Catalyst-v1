@@ -1,0 +1,169 @@
+/* Base Navigation Styles */
+nav {
+  background-color: transparent;
+  justify-content: space-between;
+  padding: 1.25rem 4rem;
+  align-items: center;
+  display: flex;
+  height: 6rem;
+  z-index: 5;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Logo Styles */
+.nav-logo-link {
+  text-decoration: none;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: "Poppins", sans-serif;
+  transition: translate 450ms;
+  text-shadow: 4px 4px #730069;
+  letter-spacing: 2px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  padding-left: 2rem;
+  margin: 0;
+}
+
+.nav-logo-link:hover .nav-logo {
+  translate: 0 -5px;
+}
+
+/* Navigation Links Container */
+.nav-links {
+  align-items: center;
+  display: flex;
+  background-color: rgba(225, 225, 225, 0.79);
+  border-radius: 0.5rem;
+  gap: 1rem;
+  padding: 0.25rem 1rem;
+  height: 3.45rem;
+  margin-top: 0.5rem;
+}
+
+/* Individual Link Styles */
+.link-one,
+.link-two,
+.link-three,
+.link-four {
+  text-decoration: none;
+  font-size: 0.85rem;
+  color: #454545;
+  font-weight: lighter;
+  padding: 0.25rem;
+  white-space: nowrap;
+}
+
+.nav-text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.nav-text:hover {
+  color: black;
+}
+
+/* Responsive Design */
+
+/* Laptops/Tablets */
+@media screen and (max-width: 1024px) {
+  nav {
+    padding: 1rem 2rem;
+    height: 5rem;
+  }
+
+  .nav-logo {
+    font-size: 1.75rem;
+    padding-left: 1rem;
+  }
+
+  .nav-links {
+    height: 3rem;
+    gap: 0.75rem;
+  }
+}
+
+/* Tablets/Small Desktops */
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 1rem;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .nav-logo-link {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .nav-logo {
+    font-size: 1.5rem;
+    padding-left: 0;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    padding: 0.5rem;
+    margin-top: 0;
+  }
+
+  .nav-text {
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 480px) {
+  .nav-links {
+    flex-wrap: wrap;
+    height: auto;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .link-one,
+  .link-two,
+  .link-three,
+  .link-four {
+    width: calc(50% - 0.5rem);
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+
+  .nav-text {
+    font-size: 0.75rem;
+  }
+
+  .nav-logo {
+    font-size: 1.25rem;
+    text-shadow: 3px 3px #730069;
+  }
+}
+
+/* Very Small Devices */
+@media screen and (max-width: 320px) {
+  .nav-links {
+    flex-direction: column;
+    padding: 0.25rem;
+  }
+
+  .link-one,
+  .link-two,
+  .link-three,
+  .link-four {
+    width: 100%;
+    text-align: center;
+  }
+}

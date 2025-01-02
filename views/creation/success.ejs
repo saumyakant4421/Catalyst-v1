@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petition | Success</title>
+    <link rel="stylesheet" href="/creation/success.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- #endregion Google Font Server -->
+    <!-- #region Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 15%;">
+        <h1>✅ Success!</h1>
+        <p><%= message %></p>
+        <p>Redirecting to the home page shortly...</p>
+
+        <div class="error-links-container">
+            <a class="error-link home" href="/">
+                <img class="error-link-image" src="/errors/homepage.png" alt="Home Icon" />
+                <h4 class="error-link-text">Home</h4>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 5000);
+    </script>
+</body>
+</html>

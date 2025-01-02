@@ -1,0 +1,188 @@
+/* Base Categories Section */
+#categories-section {
+    min-height: 25rem;
+    height: auto;
+    border: 1px solid beige;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
+    background-repeat: no-repeat;
+    background-size: 300%;
+    background-position: bottom center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+
+/* Responsive Layout for Visualization and Content */
+.categories-viz {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.categories-content {
+    width: 100%;
+    text-align: center;
+}
+
+.cate-image {
+    object-fit: contain;
+    height: auto;
+    max-height: 18rem;
+    width: 100%;
+}
+
+/* Header Styles */
+h1 {
+    font-size: 1.75rem;
+    color: aliceblue;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    margin: 1rem 0;
+    font-weight: 400;
+}
+
+/* Categories Choice Grid */
+.categories-choice {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(100px, 1fr)); /* Adjusted minmax for mobile */
+    gap: 15px;
+    justify-content: center;
+    padding: 0 0.75rem;
+    width: 100%;
+    max-width: 280px; /* Added max-width for mobile containment */
+    margin: 0 auto; /* Center the grid */
+}
+
+/* Buttons */
+.choice-item {
+    align-items: center;
+    background-color: #ffffff;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #111;
+    cursor: pointer;
+    display: flex;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    height: 2rem;
+    justify-content: center;
+    line-height: 1.3;
+    position: relative;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.choice-item:after {
+    background-color: #9859D2;
+    border-radius: 8px;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    transform: translate(6px, 6px);
+    transition: transform 0.2s ease-out;
+    z-index: -1;
+}
+
+.choice-item:hover:after {
+    transform: translate(0, 0);
+}
+
+.choice-item:active {
+    background-color: #ffffff;
+    outline: 0;
+}
+
+/* Typography for Button Content */
+.choice-logo {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.choice-text {
+    font-size: 0.875rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    #categories-section {
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 2rem;
+    }
+    
+    .categories-viz {
+        width: 46%;
+    }
+    
+    .categories-content {
+        width: 45%;
+    }
+    
+    .cate-image {
+        max-height: 32rem;
+    }
+    
+    h1 {
+        font-size: 2.25rem;
+        margin-left: 13rem;
+        text-align: left;
+    }
+    
+    .categories-choice {
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 25px;
+        padding: 10px;
+        margin-left: 5rem;
+        margin-top: 2rem;
+        max-width: none; /* Remove max-width constraint for desktop */
+    }
+    
+    .choice-item {
+        height: 3rem;
+        padding: 1rem;
+    }
+    
+    .choice-logo {
+        font-size: 1.5rem;
+    }
+    
+    .choice-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #categories-section {
+        padding: 1rem;
+    }
+    
+    .categories-choice {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 12px;
+        max-width: 240px; /* Reduced from 280px for smaller buttons */
+    }
+    
+    .choice-item {
+        height: 2.5rem; /* Reduced from 70px */
+        padding: 8px;
+    }
+    
+    .choice-logo {
+        font-size: 1.125rem;
+    }
+    
+    .choice-text {
+        font-size: 0.75rem;
+    }
+}
