@@ -41,7 +41,8 @@ nav {
     transition: transform 450ms ease;
     letter-spacing: clamp(1px, 0.15vw, 2px);
     font-size: clamp(1.5rem, 2vw, 2.5rem);
-    color: #ffffff;
+    /* color: #ffffff; */
+    color: #ff0059e7;
     font-weight: 500;
 }
 
@@ -207,7 +208,6 @@ nav {
         font-size: 0.85rem;
     }
 }
-
 @media (max-width: 480px) {
     nav {
         padding: 0.5rem 0.8rem;
@@ -222,7 +222,7 @@ nav {
     }
 
     .nav-logo {
-        font-size: clamp(0.8rem, 0.9vw, 1rem);
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
     }
 
     .nav-link-text,
@@ -233,24 +233,22 @@ nav {
     }
 }
 
-
 .nav-about-text {
     padding: 1px;
     color: rgb(255, 255, 255);
     font-family: "Poppins", sans-serif;
     font-weight: 300;
-    font-size: 1rem; /* Default font size */
+    font-size: 1rem;
 }
 
 .nav-profile-container {
-    display: flex; /* Enables flexbox layout */
-    align-items: center; /* Aligns items vertically in the center */
-    gap: 0.5rem; /* Adds space between the image and username */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .nav-profile-image {
     height: auto;
-    width: 1.5rem; /* Adjust size as needed */
     object-fit: contain;
 }
 
@@ -258,10 +256,9 @@ nav {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     color: #fff;
-    font-size: 1rem; /* Adjust size as needed */
 }
 
-.nav-petition-link-image{
+.nav-petition-link-image {
     margin-right: 0.5rem;
 }
 
