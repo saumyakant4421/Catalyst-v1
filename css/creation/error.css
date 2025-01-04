@@ -8,8 +8,9 @@
 }
 
 html, body {
-    height: 100%; 
-    overflow: hidden; 
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
 }
 
 body {
@@ -20,46 +21,59 @@ body {
     background-position: center;
     color: aliceblue;
     font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
 }
 
-p{
+p {
     font-family: "Poppins", sans-serif;
     text-shadow: 4px 4px #000;
     font-weight: 250;
-    font-size: 2rem;
+    font-size: clamp(1rem, 4vw, 2rem);
     cursor: default;
     color: #fff;
-    
-    
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
 }
 
-h1{
+h1 {
     text-shadow: 4px 4px #000;
     font-weight: 600;
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 6vw, 3rem);
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 .error-links-container {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    margin-top: clamp(0.5rem, 2vw, 1rem);
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 1rem;
 }
 
 .error-link {
     box-shadow: 4px 4px #00000080;
-    padding: 0.6rem 2.5rem;
+    padding: clamp(0.4rem, 2vw, 0.6rem) clamp(1.5rem, 4vw, 2.5rem);
     border-radius: 5px;
     display: flex;
     align-items: center;
     text-align: center;
     gap: 0.6rem;
     color: #fff;
-    font-size: 1rem;
+    font-size: clamp(0.875rem, 2vw, 1rem);
     position: relative;
     transition: all 0.3s ease-in-out;
     overflow: hidden;
     text-decoration: none;
+    min-width: fit-content;
 }
 
 .error-link.home {
@@ -72,46 +86,19 @@ h1{
     border: 2px solid #730069;
 }
 
-.error-link:hover::after {
-    width: 100%;
-}
-
 .error-link-image {
-    width: 20px;
+    width: clamp(16px, 4vw, 20px);
     height: auto;
+    aspect-ratio: 1;
 }
 
 .error-link-text {
-    font-size: 1.2rem;
+    font-size: clamp(0.875rem, 3vw, 1.2rem);
     font-weight: 300;
+    white-space: nowrap;
 }
 
-@media screen and (max-width: 768px) {
-    body {
-        background-size: 100%;
-    }
-
-    .error-link-text {
-        font-size: 1rem;
-    }
-
-    .error-link {
-        padding: 0.4rem 1.5rem;
-    }
-}
-
-.error-link.home::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: #be0042;
-    z-index: -1;
-    transition: width 0.4s ease;
-}
-
+.error-link.home::after,
 .error-link.other::after {
     content: "";
     position: absolute;
@@ -119,20 +106,57 @@ h1{
     left: 0;
     width: 0;
     height: 100%;
-    background-color: #730069; 
     z-index: -1;
     transition: width 0.4s ease;
 }
 
+.error-link.home::after {
+    background-color: #be0042;
+}
+
+.error-link.other::after {
+    background-color: #730069;
+}
 
 .error-link:hover::after {
     width: 100%;
 }
 
-.error-link.home:hover {
-    background-color: #be0042;
+/* Additional responsive breakpoints */
+@media screen and (max-width: 480px) {
+    .error-links-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .error-link {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
 }
 
-.error-link.other:hover {
-    background-color: #730069;
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    body {
+        padding: 0.5rem;
+    }
+    
+    h1 {
+        margin-bottom: 0.5rem;
+    }
+    
+    .error-links-container {
+        margin-top: 0.5rem;
+    }
+}
+
+/* Handle larger screens */
+@media screen and (min-width: 1440px) {
+    p, h1 {
+        max-width: 1200px;
+    }
+    
+    .error-links-container {
+        max-width: 1200px;
+    }
 }

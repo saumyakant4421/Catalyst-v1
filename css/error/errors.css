@@ -1,96 +1,106 @@
 /*---------------------------------------------------------*/
 /*--------------------- ERRORS STYLES ---------------------*/
 /*---------------------------------------------------------*/
-
 #errors-section {
     grid-template-columns: repeat(2, auto);
     justify-content: center;
-    padding: 8.5rem 10rem;
+    padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5rem);
     align-items: center;
     display: grid;
-    gap: 2.5rem;
-  }
-  
-  .error-image {
+    gap: 1.5rem;
+    max-width: 50%;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+.error-image {
     filter: drop-shadow(4px 4px #00000060);
-    width: 325px;
-  }
-  
-  .error-information-container {
-    grid-template-columns: auto;
+    width: min(325px, 100%);
+    height: auto;
+}
+
+.error-information-container {
+    grid-template-columns: minmax(0, 1fr);
     justify-content: center;
     align-items: center;
     display: grid;
-    gap: 1rem;
-  }
-  
-  /*-----------------------------------*/
-  /*----------- TEXT STYLES -----------*/
-  /*-----------------------------------*/
-  
-  .error-text-container {
-    grid-template-columns: auto;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+/*-----------------------------------*/
+/*----------- TEXT STYLES -----------*/
+/*-----------------------------------*/
+
+.error-text-container {
+    grid-template-columns: minmax(0, 1fr);
     justify-content: center;
     align-items: center;
     display: grid;
-  }
-  
-  .error-title {
+    width: 100%;
+}
+
+.error-title {
     font-family: "Poppins", sans-serif;
     text-shadow: 4px 4px #000;
     font-weight: 200;
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     cursor: default;
     color: #fff;
-  }
-  
-  .error-description {
+    word-wrap: break-word;
+    margin-bottom: 0.5rem;
+}
+
+.error-description {
     font-family: "Poppins", sans-serif;
-    font-size: 1.35rem;
+    font-size: clamp(1rem, 3vw, 1.35rem);
     font-weight: 200;
     color: #b6b6b6;
     cursor: default;
-  }
-  
-  /*------------------------------------*/
-  /*----------- LINKS STYLES -----------*/
-  /*------------------------------------*/
-  
-  .error-links-container {
+    word-wrap: break-word;
+}
+
+/*------------------------------------*/
+/*----------- LINKS STYLES -----------*/
+/*------------------------------------*/
+
+.error-links-container {
     grid-auto-flow: column;
     justify-content: left;
     align-items: center;
     display: grid;
     gap: 1rem;
-  }
-  
-  .error-link {
+    flex-wrap: wrap;
+    width: 100%;
+    /* margin-top: 0.5rem; */
+}
+
+.error-link {
     transition: background-color 450ms, border-color 450ms, translate 150ms,
-      box-shadow 150ms;
+        box-shadow 150ms;
     box-shadow: 4px 4px #00000080;
-    /* transform: skewX(-6.5deg); */
     justify-content: center;
     grid-auto-flow: column;
-    padding: 0.3rem 2.5rem;
+    padding: 0.3rem clamp(1rem, 4vw, 2.5rem);
     border-radius: 2.5px;
     align-items: center;
     position: relative;
     display: grid;
     gap: 0.6rem;
-  }
-  
-  .error-link.home {
+    width: fit-content;
+}
+
+.error-link.home {
     background-color: #c5000010;
     border: 2px solid #be0042;
-  }
-  
-  .error-link.other {
+}
+
+.error-link.other {
     background-color: #001ac510;
     border: 2px solid #730069;
-    /* border: 2px solid #730069; */
-  }
-  
-  .error-link::after {
+}
+
+.error-link::after {
     transition: background-color 350ms, width 350ms;
     position: absolute;
     margin: 0 auto;
@@ -101,41 +111,81 @@
     bottom: 0;
     left: 0;
     top: 0;
-  }
-  
-  .error-link.home::after {
+}
+
+.error-link.home::after {
     background-color: #be0042;
-  }
-  
-  .error-link.other::after {
+}
+
+.error-link.other::after {
     background-color: #730069;
-  }
-  
-  .error-link-image {
-    width: 20px;
-  }
-  
-  .error-link-text {
+}
+
+.error-link-image {
+    width: clamp(16px, 4vw, 20px);
+    height: auto;
+}
+
+.error-link-text {
     font-family: "Poppins", sans-serif;
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 3vw, 1.25rem);
     font-weight: 300;
     color: #fff;
-  }
-  
-  /*-------------------------------------------*/
-  /*--------------- TRANSITIONS ---------------*/
-  /*-------------------------------------------*/
-  
-  .error-link:hover::after {
+    white-space: nowrap;
+}
+
+/*-------------------------------------------*/
+/*--------------- TRANSITIONS ---------------*/
+/*-------------------------------------------*/
+
+.error-link:hover::after {
     width: 100%;
-  }
-  
-  .error-link:focus {
+}
+
+.error-link:focus {
     box-shadow: 0 0 #00000080;
     translate: 0 4px;
-  }
-  
-  /*----------------------------------------------*/
-  /*----------------- END OF CSS -----------------*/
-  /*----------------------------------------------*/
-  
+}
+
+/*-------------------------------------------*/
+/*--------------- MEDIA QUERIES -------------*/
+/*-------------------------------------------*/
+
+@media screen and (max-width: 768px) {
+    #errors-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .error-links-container {
+        justify-content: center;
+        grid-auto-flow: row;
+    }
+
+    .error-information-container {
+        order: 2;
+    }
+
+    .error-image {
+        order: 1;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .error-links-container {
+        grid-auto-flow: row;
+        gap: 1.5rem;
+        margin:0rem;
+        padding: 0rem;
+
+    }
+
+    .error-link {
+        width: 80%;
+        padding: 0.2rem clamp(1rem, 4vw, 2.5rem);
+    }
+}
+
+/*----------------------------------------------*/
+/*----------------- END OF CSS -----------------*/
+/*----------------------------------------------*/

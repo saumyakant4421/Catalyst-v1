@@ -5,6 +5,7 @@ const {
     changePassword,
     logout,
     deleteAccount,
+    deletePetition,
 } = require("../controllers/myListingsController.js");
 
 const router = express.Router();
@@ -16,5 +17,7 @@ router.post("/changePassword", isAuthenticated, changePassword);
 router.post("/logout", isAuthenticated, logout);
 
 router.post("/deleteAccount", isAuthenticated, deleteAccount);
+
+router.post("/petition/:id/delete", isAuthenticated, deletePetition);
 
 module.exports = router;

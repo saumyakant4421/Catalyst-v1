@@ -55,6 +55,8 @@
                                     <span><%= petition.supporters.length %> of <%= petition.targetSupporters %> Supporters</span>
                                 </div>
                                 <a href="/petition/<%= petition._id %>" class="sign-btn">View</a>
+                                <!-- Modify the delete button in the petition card -->
+                                <button class="delete-btn" data-petition-id="<%= petition._id %>" data-petition-title="<%= petition.title %>">Delete</button>
                             </div>
                         <% }); %>
                     <% } else { %>
@@ -89,10 +91,24 @@
                 <button class="scroll-button right" onclick="scrollContainer('right', 'signed')">&gt;</button>
             </div>
         </section>
+
+        <div id="deleteModal" class="modal">
+            <div class="modal-content">
+                <h3>Delete Petition</h3>
+                <p>Are you sure you want to delete "<span id="petitionTitle"></span>"?</p>
+                <p class="warning">This action cannot be undone.</p>
+                <div class="modal-actions">
+                    <button onclick="closeDeleteModal()" class="cancel-btn">Cancel</button>
+                    <button onclick="confirmDelete()" class="confirm-delete-btn">Yes, Delete</button>
+                </div>
+            </div>
+        </div>
         
     </div>
 
-    <script>
+
+
+    <!-- <script>
         function scrollContainer(direction, type) {
             const container = document.getElementById(`${type}-petitions-container`);
             const scrollAmount = 320; // Width of card + gap
@@ -147,6 +163,7 @@
                 container.addEventListener('scroll', () => updateScrollButtons(type));
             });
         });
-    </script>
+    </script> -->
+    <script type="module" src="/myListings.js"></script>
 </body>
 </html>

@@ -139,3 +139,30 @@ exports.deleteAccount = async (req, res) => {
         });
     }
 };
+
+exports.deletePetition = async (req, res) => {
+    try {
+        const petitionId = req.params.id;
+        const userId = req.user._id;
+
+        // Find and ensure the petition belongs to the user
+        const petition = await Petition.findOne({ _id: petitionId, creatorId: userId });
+        
+        if (!petition) {
+            return res.status(404).json({ 
+                success: false, 
+                message: "Petition not found or unauthorized" 
+            });
+        }
+
+        await Petition.findByIdAndDelete(petitionId);
+        
+        res.json({ success: true });
+    } catch (err) {
+        console.error("Error deleting petition:", err.message);
+        res.status(500).json({ 
+            success: false, 
+            message: "An error occurred while deleting the petition" 
+        });
+    }
+};

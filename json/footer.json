@@ -7,20 +7,20 @@
     ],
     "menuLinks": [
       { "name": "Home", "url": "/" },
-      { "name": "About", "url": "/about" },
-      { "name": "Services", "url": "/services" },
-      { "name": "Team", "url": "/team" }
+      { "name": "About", "url": "/" },
+      { "name": "Services", "url": "/" },
+      { "name": "Team", "url": "/" }
       
     ],
 
 
     "socials": [
       {
-        "URL": "https://www.github.com/",
+        "URL": "https://github.com/saumyakant4421",
         "image": "/buttons/github.png"
       },
       {
-        "URL": "https://www.instagram.com/",
+        "URL": "https://www.instagram.com/__saumya_kant/",
         "image": "/buttons/insta.png"
       },
       {
@@ -28,7 +28,7 @@
         "image": "/buttons/twitter.png"
       },
       {
-        "URL": "https://www.facebook.com/",
+        "URL": "https://www.linkedin.com/in/saumya-kant-167b99191/",
         "image": "/buttons/linkedin.png"
       }
     ]

@@ -42,7 +42,7 @@ nav {
     letter-spacing: clamp(1px, 0.15vw, 2px);
     font-size: clamp(1.5rem, 2vw, 2.5rem);
     /* color: #ffffff; */
-    color: #ff0059e7;
+    color: #F93075;
     font-weight: 500;
 }
 
@@ -231,6 +231,9 @@ nav {
     .nav-profile-username {
         font-size: 0.8rem;
     }
+    .nav-profile-username{
+        margin-top: 1rem;
+    }
 }
 
 .nav-about-text {
@@ -256,6 +259,7 @@ nav {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     color: #fff;
+    
 }
 
 .nav-petition-link-image {
