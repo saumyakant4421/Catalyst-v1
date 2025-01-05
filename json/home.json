@@ -3,11 +3,11 @@
         "choice": [
             {
                 "URL": "#home-petitions",
-                "name": "Sign Petitions"
+                "name": "Support Petitions"
             },
             {
                 "URL": "#start-petition-section",
-                "name": "Start Petition"                
+                "name": "Start a Petition"                
             }
         ]
     },

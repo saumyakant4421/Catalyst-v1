@@ -124,6 +124,7 @@ body {
     max-width: 24rem;
     height: auto;
     color: whitesmoke;
+    /* background-color: #000000; */
     background-color: #2a2b38;
     padding: 1rem;
     border-radius: 8px;
@@ -137,6 +138,7 @@ body {
     background-size: 300%;
     background-position: bottom center;
     position: relative;
+    /* border: 4px solid rgb(109, 4, 91); */
 }
 
 .verified-icon {

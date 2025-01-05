@@ -9,7 +9,7 @@
       { "name": "Home", "url": "/" },
       { "name": "About", "url": "/" },
       { "name": "Services", "url": "/" },
-      { "name": "Team", "url": "/" }
+      { "name": "Feedback", "url": "https://docs.google.com/forms/d/e/1FAIpQLSerBpbmTA13cdAxJ8AnrV_cN_Qt1Hztob6y1MieDjrk5yvGZA/viewform?usp=header" }
       
     ],
 
