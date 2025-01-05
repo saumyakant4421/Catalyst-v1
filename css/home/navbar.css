@@ -126,6 +126,7 @@ nav {
     object-fit: contain;
 }
 
+
 /* Responsive Design */
 @media (max-width: 1200px) {
     nav {
@@ -261,9 +262,12 @@ nav {
     color: #fff;
     
 }
+.nav-register-link-text{
+    margin-left: 0.5rem;
+}
 
 .nav-petition-link-image {
-    margin-right: 0.5rem;
+    margin-right: 0.35rem;
 }
 
 @media (max-width: 1200px) {
