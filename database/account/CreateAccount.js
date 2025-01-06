@@ -5,7 +5,7 @@ module.exports.DatabaseCreateAccount = async (credentials, request) => {
   try {
     // Validate inputs (e.g., email format, password strength, etc.)
     if (!credentials.email || !credentials.password || !credentials.username) {
-      return { success: false, message: "Invalid input data" };
+      return { success: false, message: "Invalid account details" };
     }
 
     // Check if an account with the email already exists

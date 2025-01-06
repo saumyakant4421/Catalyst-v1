@@ -5,8 +5,8 @@
       "image": "/error/exists.png"
     },
     "accountAbsent": {
-      "title": "CREATE OR LOGIN TO YOUR ACCOUNT",
-      "description": "Create or login in order to access petitions and related features.",
+      "title": "CREATE YOUR ACCOUNT FIRST TO LOGIN",
+      "description": "Create and then login in order to access petitions and related features.",
       "image": "/error/absent.png"
     },
     "accountInvalid": {
