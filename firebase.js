@@ -1,4 +1,3 @@
-// firebase.js (Combined for both frontend and backend)
 
 require('dotenv').config(); // Load environment variables from .env
 
@@ -15,7 +14,7 @@ if (admin.apps.length === 0) {
     type: process.env.TYPE,
     project_id: process.env.PROJECT_ID,
     private_key_id: process.env.PRIVATE_KEY_ID,
-    private_key: process.env.PRIVATE_KEY.replace(/\\n/g, '\n'), // Ensure newlines are preserved
+    private_key: process.env.PRIVATE_KEY.replace(/\\n/g, '\n'), 
     client_email: process.env.CLIENT_EMAIL,
     client_id: process.env.CLIENT_ID,
     auth_uri: process.env.AUTH_URI,
@@ -26,7 +25,7 @@ if (admin.apps.length === 0) {
   };
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    storageBucket: process.env.FIREBASE_STORAGE_BUCKET, // Firebase storage bucket
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET, 
   });
 }
 
@@ -45,6 +44,6 @@ const firebaseConfig = {
 
 // Initialize Firebase (frontend)
 const app = initializeApp(firebaseConfig);
-const storage = getStorage(app); // Firebase Storage for frontend
+const storage = getStorage(app); 
 
 module.exports = { bucket, admin, storage };

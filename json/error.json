@@ -1,33 +1,27 @@
 {
     "accountExists": {
       "title": "THIS ACCOUNT ALREADY EXISTS",
-      "description": "Login to your account to access petitions and related features.",
-      "image": "/error/exists.png"
+      "description": "Login to your account to access petitions and related features."
     },
     "accountAbsent": {
       "title": "CREATE YOUR ACCOUNT FIRST TO LOGIN",
-      "description": "Create and then login in order to access petitions and related features.",
-      "image": "/error/absent.png"
+      "description": "Create and then login in order to access petitions and related features."
     },
     "accountInvalid": {
       "title": "THIS ACCOUNT DOES NOT EXIST",
-      "description": "Create your account to access petitions and related features.",
-      "image": "/error/general.png"
+      "description": "Create your account to access petitions and related features."
     },
     "accountCreationFailure": {
       "title": "FAILED TO CREATE YOUR ACCOUNT",
-      "description": "An unexpected error has occurred, please try again in a little while.",
-      "image": "/error/failure.png"
+      "description": "An unexpected error has occurred, please try again in a little while."
     },
     "loginPasswordIncorrect": {
       "title": "FAILED TO LOGIN TO YOUR ACCOUNT",
-      "description": "The password you entered, to this account, is incorrect.",
-      "image": "/error/general.png"
+      "description": "The password you entered, to this account, is incorrect."
     },
     "loginPasswordMismatch": {
       "title": "FAILED TO LOGIN TO YOUR ACCOUNT",
-      "description": "The password you entered does not match. Please confirm the password.",
-      "image": "/error/general.png"
+      "description": "The password you entered does not match. Please confirm the password."
     }
   }
   

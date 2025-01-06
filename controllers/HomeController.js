@@ -1,5 +1,4 @@
 const HomeData = require("../json/home.json");
-const petitionsData = require("../json/petitions.json");
 const { Petition, Account } = require("../database/models/AccountModel.js");
 const footerData = require("../json/footer.json");
 

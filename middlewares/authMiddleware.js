@@ -10,10 +10,10 @@ const optionalAuthentication = async (req, res, next) => {
                     req.session.destroy(); // Destroy invalid session
                     return next(); // Proceed as unauthenticated
                 }
-                req.session.account = account; // Save user details in session
+                req.session.account = account; 
             }
 
-            // Attach user details to the request object
+            
             req.user = req.session.account;
         }
 

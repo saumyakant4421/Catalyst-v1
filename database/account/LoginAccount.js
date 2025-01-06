@@ -26,11 +26,10 @@ module.exports.DatabaseLoginAccount = async (credentials, request) => {
     }
 
     // Set session details on successful login
-    request.session.userId = databaseAccount._id; // Store userId in session
-    request.session.username = databaseAccount.username; // Store username in session
-    request.session.email = databaseAccount.email; // Store email in session
+    request.session.userId = databaseAccount._id; 
+    request.session.username = databaseAccount.username; 
+    request.session.email = databaseAccount.email; 
 
-    console.log("Session Data After Login:", request.session); // Debugging
 
     return { success: true, message: "Login successful" };
   } catch (error) {

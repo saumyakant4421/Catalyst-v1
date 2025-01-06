@@ -1,7 +1,6 @@
 const { Petition } = require("../database/models/AccountModel.js");
 
-/**
- * Middleware to check if the user is logged in
+/**  Middleware to check if the user is logged in
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
  * @param {Function} next - Express next middleware function

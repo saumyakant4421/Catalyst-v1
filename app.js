@@ -6,7 +6,7 @@ const session = require("express-session");
 const memoryStore = require("memorystore")(session);
 const livereload = require("livereload");
 const connectLivereload = require("connect-livereload");
-const path = require("path"); // Ensure path is imported
+const path = require("path"); 
 
 const app = express();
 
@@ -15,24 +15,22 @@ const { ConnectDatabase } = require("./database/DatabaseManager.js");
 // LiveReload setup for development
 global.liveReloadServer = livereload.createServer();
 liveReloadServer.watch([
-    path.join(__dirname), // Watch the root directory
-    path.join(__dirname, 'css'),  // Watch the 'css' directory
-    path.join(__dirname, 'js'),   // Watch the 'js' directory
-    path.join(__dirname, 'assets') // Watch the 'assets' directory, if any
+    path.join(__dirname), 
+    path.join(__dirname, 'css'),  
+    path.join(__dirname, 'js'),   
+    path.join(__dirname, 'assets') 
 ]);
 
-// Notify the browser of changes
+
 liveReloadServer.server.once("connection", () => {
     setTimeout(() => {
         liveReloadServer.refresh("/");
     }, 100);
 });
 
-// Add livereload middleware
+// livereload middleware
 app.use(connectLivereload());
 
-// Error handler route
-// To be configured based on actual requirements
 
 // Importing route files
 const homeRoute = require("./routes/home.js");
@@ -43,15 +41,15 @@ const listingRoute = require("./routes/listing.js");
 const detailsRoute = require("./routes/details.js");
 const myListingsRoute = require("./routes/myListings.js");
 
-// const authRoute = require("./routes/auth.js");
+
 
 // Middleware for parsing request bodies
-app.use(bodyparser.urlencoded({ extended: true }));  // Corrected the extended type
+app.use(bodyparser.urlencoded({ extended: true }));  
 
 // Session configuration
 app.use(
     session({
-        secret: "Catalyst", // Replace with a secure value in production
+        secret: "Catalyst", 
         cookie: {
             secure: false, // Should be true in production when using HTTPS
             maxAge: 86400000, // 24 hours
@@ -75,10 +73,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Set EJS as the view engine
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
+
 // Establish MongoDB connection
 ConnectDatabase();
 
-// Use imported routes
+// Using imported routes
 app.use("/", homeRoute);
 app.use("/account", accountRoute);
 app.use("/error", errorRoute);
@@ -86,7 +85,7 @@ app.use("/petition", petitionRoute);
 app.use("/", listingRoute);
 app.use("/petition", detailsRoute);
 app.use("/", myListingsRoute); 
-// Uncomment routes when needed
+
 
 // Fallback for invalid routes
 app.use((req, res) => {

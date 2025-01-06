@@ -40,8 +40,8 @@ exports.createPetition = async (req, res) => {
         }
 
         const petitionToArray = petition_to
-        .split(",")            // Split the string by commas
-        .map(entity => entity.trim());  // Trim spaces around each entity
+        .split(",")            
+        .map(entity => entity.trim());  
 
         // Default image URL
         let imageUrl = "";
@@ -89,7 +89,7 @@ exports.createPetition = async (req, res) => {
             targetDate: petition_date,
             creatorId: req.session.userId,
             supporters: [],
-            image: imageUrl, // Set image URL
+            image: imageUrl, 
             verified: 'N',
         };
 
