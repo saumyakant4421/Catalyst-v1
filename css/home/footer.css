@@ -10,8 +10,7 @@
   background-repeat: no-repeat;
   background-size: 250%;
   background-position: bottom center;
-  margin-top: 2rem;
-  padding: 1rem;
+  margin-top: 1rem;
   box-sizing: border-box;
   overflow-x: hidden;
 }
@@ -24,7 +23,6 @@
   align-items: center;
   justify-content: space-between;
   display: flex;
-  gap: 2rem;
   width: 100%;
   max-width: 100%;
   padding: 1rem;

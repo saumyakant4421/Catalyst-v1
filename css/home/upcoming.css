@@ -1,0 +1,158 @@
+#upcoming-section {
+    font-family: "Poppins", sans-serif;
+}
+
+/* Container styles */
+.future-text {
+    text-align: center;
+    padding: 2rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.future-text h2 {
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    position: relative;
+    display: inline-block;
+}
+
+.future-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #86039a;
+}
+
+/* Features section container */
+.features-box {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+/* Individual feature box */
+.box {
+    flex: 1;
+    min-width: 280px;
+    max-width: 500px;
+    background: #ffffffda;
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
+    background-repeat: no-repeat;
+    background-size: 300%;
+    background-position: bottom center;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Image and content wrapper */
+.box > div {
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+/* Center the image */
+.box img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto; /* Ensures the image stays centered */
+}
+/* Text content */
+.box span {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    flex: 1;
+}
+
+/* Heading styles */
+.box h4 {
+    text-align: center;
+    margin: 1.25rem 0 0.25rem;
+    color: #333;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .features-box {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1rem;
+    }
+    
+    .box {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .future-text h2 {
+        font-size: 1.75rem;
+    }
+    
+    /* Ensure image and text stay side by side */
+    .box > div {
+        flex-direction: column;
+        align-items: center; /* Maintain centering */
+    }
+    
+    .box img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-box {
+        padding: 1.5rem 1rem;
+    }
+
+    .box {
+        min-width: unset;
+        width: 100%;
+    }
+
+    /* Maintain side-by-side layout even on small screens */
+    .box > div {
+        flex-direction: column;
+        align-items: center; /* Maintain centering */
+    }
+    
+    .box img {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .box span {
+        font-size: 0.9rem;
+    }
+    
+    .future-text h2 {
+        font-size: 1.5rem;
+    }
+}
