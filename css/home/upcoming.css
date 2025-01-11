@@ -29,7 +29,7 @@
     background: #86039a;
 }
 
-/* Features section container */
+
 .features-box {
     display: flex;
     justify-content: center;
@@ -41,11 +41,12 @@
     box-sizing: border-box;
 }
 
-/* Individual feature box */
+
 .box {
     flex: 1;
     min-width: 280px;
     max-width: 500px;
+    /* background: #4f224cda; */
     background: #ffffffda;
     border-radius: 12px;
     padding: 1.25rem;
@@ -65,35 +66,33 @@
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Image and content wrapper */
 .box > div {
     flex-direction: column;
-    align-items: center; /* Center items horizontally */
+    align-items: center; 
     gap: 1.25rem;
     margin-bottom: 1rem;
 }
 
-/* Center the image */
+
 .box img {
     width: 100px;
     height: 100px;
     object-fit: cover;
     border-radius: 8px;
-    margin: 0 auto; /* Ensures the image stays centered */
+    margin: 0 auto; 
 }
-/* Text content */
+
 .box span {
     font-size: 0.95rem;
     line-height: 1.5;
-    color: #555;
+    color: #ffffff;
     flex: 1;
 }
 
-/* Heading styles */
 .box h4 {
     text-align: center;
     margin: 1.25rem 0 0.25rem;
-    color: #333;
+    color: #ffffff;
     font-size: 1.15rem;
     font-weight: 600;
 }
