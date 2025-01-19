@@ -9,13 +9,12 @@ exports.startPetition = (req, res) => {
     res.render('creation', {
         templates: categories,
         icons: icons,
-        user: req.session.account
+        user: req.session.account,
     });
 };
 
 exports.createPetition = async (req, res) => {
     try {
-
         const {
             title,
             description,
@@ -35,13 +34,25 @@ exports.createPetition = async (req, res) => {
         }
 
         // Validate required fields
-        if (!title || !description || !category || !petition_to || !petition_by || !petition_date || !location || !targetSupporters) {
-            return res.status(400).send("All fields are required.");
+        if (
+            !title ||
+            !description ||
+            !category ||
+            !petition_to ||
+            !petition_by ||
+            !petition_date ||
+            !location ||
+            !targetSupporters
+        ) {
+            return res.status(400).render('creation/error', {
+                errorMessage: "All fields are required to create a petition.",
+            });
         }
 
+        // Split and trim petition_to into an array
         const petitionToArray = petition_to
-        .split(",")            
-        .map(entity => entity.trim());  
+            .split(",")
+            .map((entity) => entity.trim());
 
         // Default image URL
         let imageUrl = "";
@@ -55,18 +66,20 @@ exports.createPetition = async (req, res) => {
                 },
             });
 
-            // This is now wrapped in a promise to wait for the finish event before continuing
+            // Await the image upload
             await new Promise((resolve, reject) => {
-                stream.on('error', (err) => {
+                stream.on("error", (err) => {
+                    console.error("Image upload error:", err);
                     reject(new Error("Image upload failed."));
                 });
 
-                stream.on('finish', async () => {
+                stream.on("finish", async () => {
                     try {
                         await file.makePublic();
                         imageUrl = `https://storage.googleapis.com/${bucket.name}/${file.name}`;
                         resolve();
                     } catch (err) {
+                        console.error("Error making image public:", err);
                         reject(new Error("Error making image public."));
                     }
                 });
@@ -83,37 +96,37 @@ exports.createPetition = async (req, res) => {
             category: Array.isArray(category) ? category : [category],
             scope: req.body.scope || "Local",
             authors: [petition_by],
-            targetEntities: petitionToArray,  
+            targetEntities: petitionToArray,
             createdAt: new Date(),
-            targetSupporters: targetSupporters,
+            targetSupporters,
             targetDate: petition_date,
             creatorId: req.session.userId,
             supporters: [],
-            image: imageUrl, 
-            verified: 'N',
+            image: imageUrl,
+            verified: "N", // Default verification status
         };
 
-        // Save petition to database
+        // Save petition to the database
         const petition = new Petition(newPetition);
         await petition.save();
 
-        // Link petition to creator's account
-        await Account.findByIdAndUpdate(
-            req.session.userId,
-            { $push: { createdPetitions: petition._id } }
-        );
-
-        return res.render('creation/success', {
-            message: "Your petition has been created successfully!",
-            petitionId: petition._id
+        // Link petition to the creator's account
+        await Account.findByIdAndUpdate(req.session.userId, {
+            $push: { createdPetitions: petition._id },
         });
 
-
+        // Render success page with petition details
+        return res.render("creation/success", {
+            message: "Your petition has been created successfully!",
+            petitionId: petition._id,
+        });
     } catch (err) {
-        console.error("Error occurred:", err.message);
-        // Render error view with message using the correct path
-        return res.render('creation/error', {
-            errorMessage: err.message || "An unexpected error occurred while creating your petition."
+        console.error("Error occurred while creating petition:", err.message);
+
+        // Render error view with message
+        return res.render("creation/error", {
+            errorMessage:
+                err.message || "An unexpected error occurred while creating your petition.",
         });
     }
 };

@@ -14,9 +14,8 @@
 </head>
 <body>
     
-    <header><%- include("./error/navbar.ejs") %></header>
 
-    <div class = "content" style="text-align: center; margin-top: 15%;">
+    <div class = "content" style="text-align: center; margin-top: 5%;">
         <h1>❌ Error!</h1>
         <p><%= errorMessage || "An unexpected error occurred. Please try again later." %></p>
 
@@ -26,10 +25,7 @@
                 <h4 class="error-link-text">Home</h4>
             </a>
 
-            <!-- <a class="error-link other" href="/petition/start">
-                <img class="error-link-image" src="/errors/reset.png" alt="Try Again Icon" />
-                <h4 class="error-link-text">Try Again</h4>
-            </a> -->         
+       
         </div>
     </div>
 </body>
